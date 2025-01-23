@@ -1,0 +1,95 @@
+<doctype html>
+  <head>
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://api.tomtom.com/maps-sdk-for-web/cdn/6.x/6.25.0/maps/maps.css"
+    />
+    <script src="https://api.tomtom.com/maps-sdk-for-web/cdn/6.x/6.25.0/maps/maps-web.min.js"></script>
+  </head>
+
+  <style>
+    /* Full-Width Rounded Box at the Bottom */
+    .rounded-box {
+      position: fixed; /* Sticks the box to the bottom of the viewport */
+      bottom: 0; /* Aligns with the bottom edge */
+      left: 0; /* Starts at the left edge */
+      width: 100%; /* Spans the full width of the screen */
+      padding: 15px 20px; /* Adjust for inner spacing */
+      border-radius: 20px 20px 0 0; /* Rounded top corners only */
+      background: rgba(255, 255, 255, 0.9); /* Slightly transparent */
+      box-shadow: 0 -4px 6px rgba(0, 0, 0, 0.1); /* Shadow at the top edge */
+      display: flex; /* Flexbox for layout */
+      flex-wrap: wrap; /* Allows wrapping for smaller screens */
+      justify-content: center; /* Center-align buttons horizontally */
+      align-items: center; /* Center-align buttons vertically */
+      gap: 10px; /* Space between buttons */
+      backdrop-filter: blur(5px); /* Blur effect for modern UI */
+      z-index: 1000; /* Ensure it overlays the map */
+    }
+
+    /* Rounded Button Styles */
+    .rounded-button {
+      width: 80%;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 20px;
+      background: #007bff; /* Primary color */
+      color: #fff;
+      font-size: 16px;
+      font-weight: bold;
+      cursor: pointer;
+      text-align: center;
+      transition: background-color 0.3s ease, transform 0.2s ease;
+    }
+
+    .rounded-button:hover {
+      background: #0056b3;
+      transform: translateY(-2px);
+    }
+
+    .rounded-button:active {
+      background: #003f7f;
+      transform: translateY(0);
+    }
+  </style>
+
+  <body style="width: 100%; height: 100%; margin: 0; padding: 0;">
+    <div id="map" style="width: 100%; height: 100vh; position: relative;"></div>
+
+    
+
+    <script>
+      var styles = {
+        dark: 'https://api.tomtom.com/style/2/custom/style/dG9tdG9tQEBAQmNWbWVKTUJjeHZHektqcTsPIC6_NRxEQqNF68bbqTSj.json?key=Mpkj5jo4AdJxn6gA2Y7hbKB3LypyPIRA',
+        light: 'https://api.tomtom.com/style/2/custom/style/dG9tdG9tQEBAQmNWbWVKTUJjeHZHektqcTuVmnYtsgNB9ZYe5mJ0LB4J.json?key=Mpkj5jo4AdJxn6gA2Y7hbKB3LypyPIRA',
+        devilsWorld: 'https://api.tomtom.com/style/2/custom/style/dG9tdG9tQEBAQmNWbWVKTUJjeHZHektqcTtobtoaZwRCzLtBb0toa8Nn.json?key=Mpkj5jo4AdJxn6gA2Y7hbKB3LypyPIRA',
+        angelsWorld: 'https://api.tomtom.com/style/2/custom/style/dG9tdG9tQEBAQmNWbWVKTUJjeHZHektqcTtI-sLY08pGyLPzUUOeWtiD.json?key=Mpkj5jo4AdJxn6gA2Y7hbKB3LypyPIRA'
+      };
+
+      // Initialize the map
+      var longitude = -0.1276; // Example: Longitude of London
+      var latitude = 51.5074;  // Example: Latitude of London
+
+      var map = tt.map({
+        key: 'Mpkj5jo4AdJxn6gA2Y7hbKB3LypyPIRA', // Replace with your API key
+        container: 'map',
+        center: [longitude, latitude],
+        zoom: 10
+      });
+
+      // Dynamically apply the default style (e.g., dark) when map is loaded
+      map.on('load', function () {
+        map.setStyle(styles.dark); // Set the default style to dark
+      });
+
+      // Function to switch map styles
+      function changeMapStyle(styleName) {
+        // Check if styleName exists in the styles object and apply it
+        if (styles[styleName]) {
+          map.setStyle(styles[styleName]);
+        }
+      }
+    </script>
+  </body>
+</doctype html>
