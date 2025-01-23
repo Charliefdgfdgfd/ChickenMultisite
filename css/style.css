@@ -1,54 +1,126 @@
-/* Global styles */
+/* General Styles */
 body {
-  font-family: Arial, sans-serif;
+  font-family: 'Arial', sans-serif;
   margin: 0;
   padding: 0;
   background-color: #f9f9f9;
+  color: #333;
 }
 
 header {
   background-color: #007BFF;
+  padding: 10px 20px;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  font-size: 1.5rem;
   color: white;
-  padding: 20px;
-  text-align: center;
+  margin: 0;
 }
 
 nav a {
-  margin: 0 15px;
+  margin: 0 10px;
   color: white;
   text-decoration: none;
-  border-radius: 5px;
+  font-size: 1rem;
   padding: 5px 10px;
+  border-radius: 5px;
 }
 
 nav a:hover {
   background-color: #0056b3;
 }
 
-main {
-  padding: 20px;
+/* Main Home Page Styles */
+.hero {
   text-align: center;
+  background-color: #007BFF;
+  color: white;
+  padding: 50px 20px;
 }
 
-footer {
-  text-align: center;
-  padding: 10px;
-  background-color: #222;
+.hero h2 {
+  font-size: 2rem;
+}
+
+.hero p {
+  margin: 20px 0;
+  font-size: 1.2rem;
+}
+
+.hero-buttons .btn {
+  background-color: white;
+  color: #007BFF;
+  padding: 10px 20px;
+  margin: 10px;
+  border: none;
+  border-radius: 5px;
+  text-decoration: none;
+  font-size: 1rem;
+  font-weight: bold;
+  display: inline-block;
+}
+
+.hero-buttons .btn:hover {
+  background-color: #0056b3;
   color: white;
 }
 
-/* Game Hub Styles */
-.games-container {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+.features {
+  display: flex;
+  justify-content: center;
   gap: 20px;
   padding: 20px;
 }
 
+.feature-card {
+  background-color: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.feature-card h3 {
+  margin-top: 0;
+}
+
+.feature-card .btn-small {
+  display: inline-block;
+  background-color: #007BFF;
+  color: white;
+  padding: 5px 10px;
+  text-decoration: none;
+  border-radius: 5px;
+}
+
+.feature-card .btn-small:hover {
+  background-color: #0056b3;
+}
+
+/* Game Hub Styles */
+.games {
+  text-align: center;
+  padding: 20px;
+}
+
+.games-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+  margin: 20px 0;
+}
+
 .game-card {
   background-color: white;
-  border-radius: 10px;
   padding: 15px;
+  border-radius: 10px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   text-align: center;
 }
@@ -58,13 +130,27 @@ footer {
   border-radius: 10px;
 }
 
-.game-card a {
-  display: block;
-  margin-top: 10px;
-  font-size: 1.1rem;
-  color: #007BFF;
+.game-card h3 {
+  margin: 10px 0;
 }
 
-.game-card a:hover {
-  text-decoration: underline;
+.game-card .btn-small {
+  background-color: #007BFF;
+  color: white;
+  padding: 5px 10px;
+  text-decoration: none;
+  border-radius: 5px;
+}
+
+.game-card .btn-small:hover {
+  background-color: #0056b3;
+}
+
+/* Footer */
+footer {
+  background-color: #222;
+  color: white;
+  text-align: center;
+  padding: 10px;
+  font-size: 0.9rem;
 }
